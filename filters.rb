@@ -6,7 +6,10 @@ def find(id)
   end
   
   def experienced?(candidate)
-    # Your code Here
+
+    #  Takes an id, returns the candidate with that :id if there is no candidate with that id, naturally returns nil
+    candidate[:years_of_experience] >= 2
+
   end
   
   def qualified_candidates(candidates)
