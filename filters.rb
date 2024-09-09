@@ -44,3 +44,16 @@ def qualified_candidates(candidates)
     end
 end  
   
+def ordered_by_qualifications(candidates)
+  candidates.sort do |a, b|
+    # First sort by years of experience (descending)
+    comp = b[:years_of_experience] <=> a[:years_of_experience]
+    
+    # If years of experience are the same, sort by Github points (descending)
+    if comp == 0
+      b[:github_points] <=> a[:github_points]
+    else
+      comp
+    end
+  end
+end
