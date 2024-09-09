@@ -8,7 +8,7 @@ def find(id)
 
   end
   
-  def experienced?(candidate)
+def experienced?(candidate)
     # Takes an id, returns the candidate with that :id if there is no candidate with that id, naturally returns nil
     # No output (puts)
     
@@ -16,9 +16,31 @@ def find(id)
 
   end
   
-  def qualified_candidates(candidates)
-    
-
+def has_enough_github_points?(candidate)
+  candidate[:github_points] >= 100
   end
+
+def knows_required_languages?(candidate)
+  required_languages = ['Ruby', 'Python']
+  (candidate[:languages] & required_languages).any?
+  end
+
+def applied_recently?(candidate)
+  candidate[:date_applied] >= 15.days.ago.to_date
+  end
+
+def is_of_age?(candidate)
+  candidate[:age] > 17
+  end
+
+def qualified_candidates(candidates)
+  candidates.select do |candidate|
+    experienced?(candidate) &&
+    has_enough_github_points?(candidate) &&
+    knows_required_languages?(candidate) &&
+    applied_recently?(candidate) &&
+    is_of_age?(candidate) 
+
+    end
+end  
   
-  # More methods will go below
