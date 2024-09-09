@@ -1,3 +1,7 @@
+# Enumeration Candidates
+
+A ruby exercise to practice accessinng and mainpulating a simple DB.
+
 ## Setup
 
 You must install the ruby bundle to start. In your terminal write:
